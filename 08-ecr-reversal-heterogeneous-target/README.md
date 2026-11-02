@@ -1,8 +1,10 @@
+# ECR reversal fails with CZ on another target edge
+
 ### Environment
 
 - Qiskit: 2.6.1 and 2.7.0.dev0 (main `0f2d7ddfd262b1fa3afbc27f733e5c9f6cc6426d`)
 - Python: 3.13.12
-- OS: Linux 5.14.0-687.58.1.el9_8.x86_64 (x86_64)
+- OS: Linux x86_64
 
 ### What is happening?
 
@@ -15,6 +17,7 @@ from qiskit import QuantumCircuit
 from qiskit.circuit import Parameter
 from qiskit.circuit.library import CZGate, ECRGate, RZGate, SXGate
 from qiskit.transpiler import Target, generate_preset_pass_manager
+
 target = Target(num_qubits=3)
 for gate in (RZGate(Parameter('t')), SXGate()):
     target.add_instruction(gate, {(q,): None for q in range(3)})

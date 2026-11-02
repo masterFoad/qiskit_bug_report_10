@@ -2,6 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit.circuit import Parameter
 from qiskit.circuit.library import CZGate, ECRGate, RZGate, SXGate
 from qiskit.transpiler import Target, generate_preset_pass_manager
+
 target = Target(num_qubits=3)
 for gate in (RZGate(Parameter('t')), SXGate()):
     target.add_instruction(gate, {(q,): None for q in range(3)})
