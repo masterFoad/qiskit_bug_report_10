@@ -1,6 +1,6 @@
-# Ten Qiskit bug reproductions
+# Eleven bug reproductions (ten in Qiskit, one in Qiskit Aer)
 
-Qiskit 2.6.1 and main 0f2d7ddfd2 (2.7.0.dev0).
+Qiskit 2.6.1 and main 0f2d7ddfd2 (2.7.0.dev0); Qiskit Aer 0.18.2.
 
 01. [ConstrainedReschedule overlaps sequential SX gates](01-constrained-reschedule-overlap/) - Sequential SX gates overlap by 4 dt.
 02. [QASM 3 export corrupts a constant in a parameter expression](02-qasm3-expr-pi-substitution/) - A constant changes value and becomes invalid syntax.
@@ -12,3 +12,4 @@ Qiskit 2.6.1 and main 0f2d7ddfd2 (2.7.0.dev0).
 08. [ECR reversal fails with CZ on another target edge](08-ecr-reversal-heterogeneous-target/) - CZ on another edge blocks ECR reversal.
 09. [Seeded compilation varies idle-wire initial layouts](09-layout-initial-layout-variability/) - The same seed can vary idle-wire initial layouts.
 10. [num_basis_gates reports zero for a three-CX decomposition](10-num-basis-gates-estimator-mismatch/) - The estimate is 0 when synthesis uses 3 CX gates.
+11. [AerSimulator returns a density matrix with trace 2 after a statevector circuit](11-aer-noise-applied-twice/) (Qiskit Aer) - The saved density matrix has trace 2 instead of 1.
