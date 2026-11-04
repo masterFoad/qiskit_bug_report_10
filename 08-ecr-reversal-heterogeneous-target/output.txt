@@ -1,0 +1,16 @@
+Qiskit 2.7.0.dev0
+Main commit cf46ab8dca2cbb79946d92b741b250fcc25dc2f6
+Python 3.13.12
+CCC job 2166221
+
+TranspilerError
+'ecr would be supported on [Qubit(2)
+Qubit(1)] if the direction was swapped
+but no rules are known to do that. ["cx"
+"cz"
+"ecr"
+"swap"
+"rzx"
+"rxx"
+"ryy"
+"rzz"] can be automatically flipped.'

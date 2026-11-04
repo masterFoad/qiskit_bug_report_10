@@ -1,14 +1,16 @@
-# QPY cannot load a serialized HalfAdderGate
+I verified the HalfAdderGate(2) case listed here on current main.
+
 
 ### Environment
 
-- Qiskit: 2.6.1 and 2.7.0.dev0 (main `0f2d7ddfd262b1fa3afbc27f733e5c9f6cc6426d`)
-- Python: 3.13.12
-- OS: Linux x86_64
+- **Qiskit version**: 2.7.0.dev0, main cf46ab8dca
+- **Python version**: 3.13.12
+- **Operating system**: Linux x86_64
 
 ### What is happening?
 
-QPY successfully writes a circuit containing HalfAdderGate(2). Loading the buffer raises a TypeError about the required `num_state_qubits` argument.
+qpy.dump accepts the circuit containing HalfAdderGate(2), but qpy.load raises TypeError. This is
+the HalfAdderGate case already listed in #17040.
 
 ### How can we reproduce the issue?
 
@@ -16,16 +18,23 @@ QPY successfully writes a circuit containing HalfAdderGate(2). Loading the buffe
 import io
 from qiskit import QuantumCircuit, qpy
 from qiskit.circuit.library import HalfAdderGate
-
 qc = QuantumCircuit(5)
 qc.append(HalfAdderGate(2), range(5))
 payload = io.BytesIO()
 qpy.dump(qc, payload)
-payload.seek(0)
-qpy.load(payload)
-# TypeError: HalfAdderGate.__init__() missing 1 required positional argument: 'num_state_qubits'
+try: qpy.load(io.BytesIO(payload.getvalue()))
+except Exception as exc: print(type(exc).__name__); print(str(exc))
+# TypeError
+# HalfAdderGate.__init__() missing 1 required positional argument: 'num_state_qubits'
 ```
 
 ### What should happen?
 
-QPY should load the circuit with HalfAdderGate(2) preserved.
+The circuit produced by qpy.dump should load with the HalfAdderGate constructor state preserved.
+
+Related:
+- https://github.com/Qiskit/qiskit/pull/16943
+
+### AI/LLM disclosure
+
+- I found this as part of IBM Research's Spotlights project on AI-native software optimization.

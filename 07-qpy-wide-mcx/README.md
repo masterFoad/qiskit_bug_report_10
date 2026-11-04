@@ -1,14 +1,15 @@
-# QPY writes a 32-control MCX that it cannot load
+# QPY cannot load a dumped MCXGate(32)
 
 ### Environment
 
-- Qiskit: 2.6.1 and 2.7.0.dev0 (main `0f2d7ddfd262b1fa3afbc27f733e5c9f6cc6426d`)
-- Python: 3.13.12
-- OS: Linux x86_64
+- **Qiskit version**: 2.7.0.dev0, main cf46ab8dca
+- **Python version**: 3.13.12
+- **Operating system**: Linux x86_64
 
 ### What is happening?
 
-QPY successfully writes an MCX gate with 32 controls. Loading the buffer raises a QpyError stating that at most 31 are supported.
+qpy.dump accepts this 33-qubit circuit containing MCXGate(32), but qpy.load raises QpyError.
+Only the 32-control case was tested.
 
 ### How can we reproduce the issue?
 
@@ -16,16 +17,25 @@ QPY successfully writes an MCX gate with 32 controls. Loading the buffer raises 
 import io
 from qiskit import QuantumCircuit, qpy
 from qiskit.circuit.library import MCXGate
-
 qc = QuantumCircuit(33)
 qc.append(MCXGate(32), range(33))
 payload = io.BytesIO()
 qpy.dump(qc, payload)
-payload.seek(0)
-qpy.load(payload)
-# qiskit.qpy.exceptions.QpyError: 'invalid instruction: Instruction has 32 but at most 31 are supported'
+try: qpy.load(io.BytesIO(payload.getvalue()))
+except Exception as exc: print(type(exc).__name__); print(str(exc))
+# QpyError
+# 'invalid instruction: Instruction has 32 but at most 31 are supported'
 ```
 
 ### What should happen?
 
-QPY should load the 32-control MCX or reject that width during dumping instead of writing an unreadable file.
+qpy.load should read the payload produced by qpy.dump. If 32 controls are unsupported by QPY,
+qpy.dump should reject this case before writing an unreadable payload.
+
+Related:
+- https://github.com/Qiskit/qiskit/issues/17040
+- https://github.com/Qiskit/qiskit/issues/9684
+
+### AI/LLM disclosure
+
+- I found this as part of IBM Research's Spotlights project on AI-native software optimization.
