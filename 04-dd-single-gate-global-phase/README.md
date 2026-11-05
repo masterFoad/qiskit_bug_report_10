@@ -38,6 +38,10 @@ This prints `True False`.
 The global phase should be preserved, as stated in the `PadDynamicalDecoupling` documentation:
 https://github.com/Qiskit/qiskit/blob/cf46ab8dca2cbb79946d92b741b250fcc25dc2f6/qiskit/transpiler/passes/scheduling/padding/dynamical_decoupling.py#L51-L52
 
+### Any suggestions?
+
+_No response_
+
 ### AI/LLM disclosure
 
 - I developed this as part of IBM Research's Spotlights project on AI-native software optimization.

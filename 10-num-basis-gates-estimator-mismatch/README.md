@@ -36,6 +36,8 @@ This prints `0` and `3`.
 
 `num_basis_gates` should return 3, matching the synthesized circuit.
 
+### Any suggestions?
+
 Possibly related: #11019, #12010.
 
 ### AI/LLM disclosure

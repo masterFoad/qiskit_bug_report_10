@@ -34,6 +34,8 @@ qiskit.transpiler.exceptions.TranspilerError: 'ecr would be supported on [Qubit(
 
 The reversed `ecr` should be translated using `ecr` on (1, 2) and single-qubit gates. For comparison, a small 3-qubit target with only `ecr` on (1, 2), `rz`, `sx` and `x` transpiles the same circuit correctly.
 
+### Any suggestions?
+
 Possibly related: #10013, #10785.
 
 ### AI/LLM disclosure
