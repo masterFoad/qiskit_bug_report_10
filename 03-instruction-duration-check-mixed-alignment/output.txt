@@ -1,6 +1,1 @@
-Qiskit 2.7.0.dev0
-Main commit cf46ab8dca2cbb79946d92b741b250fcc25dc2f6
-Python 3.13.12
-CCC job 2166221
-
 False
