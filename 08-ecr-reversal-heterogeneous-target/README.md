@@ -36,7 +36,7 @@ The reversed `ecr` should be translated using `ecr` on (1, 2) and single-qubit g
 
 ### Any suggestions?
 
-Possibly related: #10013, #10785.
+Possibly related: https://github.com/Qiskit/qiskit/issues/10013, https://github.com/Qiskit/qiskit/issues/10785.
 
 ### AI/LLM disclosure
 

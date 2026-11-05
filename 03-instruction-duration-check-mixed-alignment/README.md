@@ -37,7 +37,7 @@ This prints `False`.
 
 ### Any suggestions?
 
-The Python version of the check (before #14700) required both remainders to be zero, while the Rust version only returns `true` when both are nonzero:
+The Python version of the check (before https://github.com/Qiskit/qiskit/issues/14700) required both remainders to be zero, while the Rust version only returns `true` when both are nonzero:
 https://github.com/Qiskit/qiskit/blob/cf46ab8dca2cbb79946d92b741b250fcc25dc2f6/crates/transpiler/src/passes/instruction_duration_check.rs#L74-L76
 
 Something like this should fix it:

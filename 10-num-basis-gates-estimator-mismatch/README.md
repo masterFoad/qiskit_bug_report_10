@@ -38,7 +38,7 @@ This prints `0` and `3`.
 
 ### Any suggestions?
 
-Possibly related: #11019, #12010.
+Possibly related: https://github.com/Qiskit/qiskit/issues/11019, https://github.com/Qiskit/qiskit/issues/12010.
 
 ### AI/LLM disclosure
 

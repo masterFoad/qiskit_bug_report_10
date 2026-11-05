@@ -26,7 +26,7 @@ print(sorted(t for node, t in start_times.items() if node.op.name == "sx"))
 
 Both `sx` gates start at 112 dt, so they overlap by 7 dt.
 
-With #16482 applied on top of main, this example gives `[100, 107]`, which is correct. However, the overlap is still there with #16482 when the pulse alignment really is 16, for example after setting `target.pulse_alignment = 16` in the snippet above: it still prints `[112, 112]`, while I would expect `[112, 128]`.
+With https://github.com/Qiskit/qiskit/issues/16482 applied on top of main, this example gives `[100, 107]`, which is correct. However, the overlap is still there with https://github.com/Qiskit/qiskit/issues/16482 when the pulse alignment really is 16, for example after setting `target.pulse_alignment = 16` in the snippet above: it still prints `[112, 112]`, while I would expect `[112, 128]`.
 
 I think the problem is that the target branch adds the gate duration in seconds, cast with `as u64`, to a start time in dt. Since 7 dt is much less than one second, this adds zero:
 https://github.com/Qiskit/qiskit/blob/cf46ab8dca2cbb79946d92b741b250fcc25dc2f6/crates/transpiler/src/passes/constrained_reschedule.rs#L123-L124

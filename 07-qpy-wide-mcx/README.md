@@ -40,7 +40,7 @@ qiskit.qpy.exceptions.QpyError: 'invalid instruction: Instruction has 32 but at 
 
 ### Any suggestions?
 
-Possibly related: #17040, #9684.
+Possibly related: https://github.com/Qiskit/qiskit/issues/17040, https://github.com/Qiskit/qiskit/issues/9684.
 
 ### AI/LLM disclosure
 

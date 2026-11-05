@@ -10,7 +10,7 @@ I verified the HalfAdderGate(2) case listed here on current main.
 ### What is happening?
 
 qpy.dump accepts the circuit containing HalfAdderGate(2), but qpy.load raises TypeError. This is
-the HalfAdderGate case already listed in #17040.
+the HalfAdderGate case already listed in https://github.com/Qiskit/qiskit/issues/17040.
 
 ### How can we reproduce the issue?
 
