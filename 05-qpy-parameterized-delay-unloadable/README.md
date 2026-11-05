@@ -1,4 +1,4 @@
-# Comment draft
+# Comment for https://github.com/Qiskit/qiskit/issues/10662 (QPY delay unit)
 
 Here is another example of the same problem, with a parameterized delay. The circuit can be dumped and loaded, but accessing the loaded delay fails:
 

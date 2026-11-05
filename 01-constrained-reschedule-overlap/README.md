@@ -1,4 +1,4 @@
-# Comment draft
+# Comment for https://github.com/Qiskit/qiskit/issues/16186 (ConstrainedReschedule start times overlap)
 
 Here is another case on main where the start times overlap, this time for two consecutive gates. On `FakePrague`, `sx` on qubit 0 takes 7 dt, and the pulse and acquire alignments are 1 and 16 dt.
 
