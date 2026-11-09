@@ -27,7 +27,7 @@ for _ in range(20):
     print(prop.duration, prop.error)
 ```
 
-With `PYTHONHASHSEED=0`, the 20 lines show two different results:
+The loop builds the same backend 20 times, so all 20 printed lines should be identical. They are not: two different results appear (12 lines of one, 8 of the other). This happens even with `PYTHONHASHSEED=0`, so it is not Python's hash randomization:
 
 ```text
 2.4753e-07 0.002773114510697487
