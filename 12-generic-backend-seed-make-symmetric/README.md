@@ -49,6 +49,14 @@ reverse edges by iterating a hash map, so their order changes from call to call.
 Sorting the edges first, `CouplingMap(sorted(coupling.get_edges()))`, gave the same properties
 in all 128 trials. `GenericBackendV2` could sort the edges before drawing the properties.
 
+This looks like a regression from https://github.com/Qiskit/qiskit/pull/16742, which replaced the
+Python implementation of `CouplingMap.make_symmetric` with the rustworkx one. Both add the same
+edges, but not in the same order. With Qiskit 2.5.2, before that change, and the same rustworkx
+0.18.1, the reproducer prints the same line all 20 times.
+
+A related symmetric-coupling-map non-determinism was https://github.com/Qiskit/qiskit/issues/16490,
+fixed separately by https://github.com/Qiskit/qiskit/pull/16732 (VF2Layout error sums).
+
 This is different from https://github.com/Qiskit/qiskit/issues/11768, which is about the simulator seed used by `run`, not the backend properties.
 
 ### AI/LLM disclosure
