@@ -15,3 +15,9 @@ rechecked on main cf46ab8dca; their README is the final issue or comment text.
 10. [num_basis_gates reports zero for a three-CX decomposition](10-num-basis-gates-estimator-mismatch/) - The estimate is 0 when synthesis uses 3 CX gates.
 11. [AerSimulator returns a density matrix with trace 2 after a statevector circuit](11-aer-noise-applied-twice/) (Qiskit Aer) - The saved density matrix has trace 2 instead of 1.
 12. [Seeded GenericBackendV2 properties change after make_symmetric](12-generic-backend-seed-make-symmetric/) - The same seed and coupling map give different CZ errors and durations. Checked on main 9ab2106352.
+
+## Credit
+
+Created by Foad Abo Dahood (@masterFoad). If you copy, reuse or open issues or pull requests based
+on these reproductions, cite this repository (https://github.com/masterFoad/qiskit_bug_report_10)
+and credit Foad Abo Dahood (@masterFoad).
